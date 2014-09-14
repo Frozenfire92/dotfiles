@@ -30,7 +30,7 @@ alias l='ls -al'
 alias gitcl='git clone'
 alias gita='git add -A'
 alias gits='git status'
-alias gitl='git'
+alias gitl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
 # git branch (gb) with descriptions
 function gb() {
