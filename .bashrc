@@ -221,7 +221,7 @@ function prompt_command() {
   # PS1="$PS1\n"
   # exit code: 127
   PS1="$PS1$(prompt_exitcode "$exit_code")"
-  PS1="$PS1\n$c9\$ "
+  PS1="$PS1\n$c0  ♣_( ♥_♥ )_♣  $c9"
 }
 
 PROMPT_COMMAND="prompt_command"
