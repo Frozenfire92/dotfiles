@@ -17,6 +17,9 @@ apt-get install sl
 #htop
 apt-get install htop
 
+#xclip
+apt-get install xclip
+
 # Ruby
 apt-get install ruby
 
