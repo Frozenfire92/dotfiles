@@ -54,10 +54,20 @@ while true; do
 	esac
 done
 
+# Media Essentials
+while true; do
+	read -p "Do you want the media essentials? [y/n]: " media
+	case $media in
+		[Yy]* ) apt-get install amarok vlc; break;;
+		[Nn]* ) exit;;
+ 		* ) echo "Please answer y or n.";;
+	esac
+done
+
 # Java
 while true; do
-	read -p "Do you want java? [y/n]: " yn4
-	case $yn4 in
+	read -p "Do you want java? [y/n]: " java
+	case $java in
 		[Yy]* ) apt-get install default-jdk; break;;
 		[Nn]* ) exit;;
  		* ) echo "Please answer y or n.";;
@@ -66,18 +76,18 @@ done
 
 # Ruby
 while true; do
-	read -p "Do you want ruby? [y/n]: " yn5
-	case $yn5 in
+	read -p "Do you want ruby? [y/n]: " ruby
+	case $ruby in
 		[Yy]* ) apt-get install ruby ruby-dev; break;;
 		[Nn]* ) exit;;
  		* ) echo "Please answer y or n.";;
 	esac
 done
 
-# Node.js / Bower, Grunt, Gulp, Yeoman
+# (Web) - Node.js, Bower, Grunt, Gulp, Yeoman
 while true; do
-	read -p "Do you want node and web essentials? [y/n]: " yn6
-	case $yn6 in
+	read -p "Do you want node and web essentials? [y/n]: " web
+	case $web in
 		[Yy]* ) add-apt-repository ppa:chris-lea/node.js; apt-get update; apt-get install nodejs npm; npm install -g bower; npm install -g grunt-cli; npm install -g gulp; npm install -g yo; break;;
 		[Nn]* ) exit;;
  		* ) echo "Please answer y or n.";;
