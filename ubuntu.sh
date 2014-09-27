@@ -1,40 +1,85 @@
 #!/bin/bash
+
+wantsToUpdate = false;
  
 echo "Joel's Ubuntu Setup Script"
 
-# Copy bash rc to home foler
-cp .bashrc ~/
+# VirtualBox goodies
+while true; do
+	read -p "Are you using a VirtualBox VM? [y/n]: " isVirtualBox
+	case $isVirtualBox in
+		[Yy]* ) apt-get install virtualbox-guest-dkms; break;;
+		[Nn]* ) exit;;
+ 		* ) echo "Please answer y or n.";;
+	esac
+done
 
-# Update
-apt-get update
+# .bashrc
+while true; do
+    read -p "Do you want the .bashrc? [y/n]: " rc
+    case $rc in
+        [Yy]* ) cp .bashrc ~/; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer y or n.";;
+    esac
+done
 
-# Tree
-apt-get install tree
+# update upgrade dist-upgrade
+while true; do
+    read -p "Do you want to update/upgrade/dist-upgrade? [y/n]: " update
+    case $update in
+        [Yy]* ) apt-get update; apt-get upgrade; apt-get dist-upgrade; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer y or n.";;
+    esac
+done
 
-# sl
-apt-get install sl
+# tree, sl, htop, xclip
+while true; do
+	read -p "Do you want the essentials? [y/n]: " essentials
+	case $essentials in
+		[Yy]* ) apt-get install tree sl htop xclip; break;;
+		[Nn]* ) exit;;
+ 		* ) echo "Please answer y or n.";;
+	esac
+done
 
-#htop
-apt-get install htop
+# Sublime Text 3
+while true; do
+	read -p "Do you want the essentials? [y/n]: " subl
+	case $subl in
+		[Yy]* ) add-apt-repository -y ppa:webupd8team/sublime-text-3; sudo apt-get update; sudo apt-get install -y sublime-text-installer; break;;
+		[Nn]* ) exit;;
+ 		* ) echo "Please answer y or n.";;
+	esac
+done
 
-#xclip
-apt-get install xclip
+# Java
+while true; do
+	read -p "Do you want java? [y/n]: " yn4
+	case $yn4 in
+		[Yy]* ) apt-get install default-jdk; break;;
+		[Nn]* ) exit;;
+ 		* ) echo "Please answer y or n.";;
+	esac
+done
 
 # Ruby
-apt-get install ruby
+while true; do
+	read -p "Do you want ruby? [y/n]: " yn5
+	case $yn5 in
+		[Yy]* ) apt-get install ruby ruby-dev; break;;
+		[Nn]* ) exit;;
+ 		* ) echo "Please answer y or n.";;
+	esac
+done
 
-# Node.js
-add-apt-repository ppa:chris-lea/node.js
-sudo apt-get install nodejs
-
-# Bower
-npm install -g bower
-
-# Grunt
-npm install -g grunt-cli
-
-# Gulp
-npm install -g gulp
-
-# Yeoman
-npm install -g yo
+# Node.js / Bower, Grunt, Gulp, Yeoman
+while true; do
+	read -p "Do you want node and web essentials? [y/n]: " yn6
+	case $yn6 in
+		[Yy]* ) add-apt-repository ppa:chris-lea/node.js; apt-get update; apt-get install nodejs npm; npm install -g bower; npm install -g grunt-cli; npm install -g gulp; npm install -g yo; break;;
+		[Nn]* ) exit;;
+ 		* ) echo "Please answer y or n.";;
+	esac
+done
