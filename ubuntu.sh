@@ -46,7 +46,7 @@ done
 
 # Sublime Text 3
 while true; do
-	read -p "Do you want the essentials? [y/n]: " subl
+	read -p "Do you want Sublime Text 3? [y/n]: " subl
 	case $subl in
 		[Yy]* ) add-apt-repository -y ppa:webupd8team/sublime-text-3; sudo apt-get update; sudo apt-get install -y sublime-text-installer; break;;
 		[Nn]* ) exit;;
