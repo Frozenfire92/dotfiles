@@ -6,7 +6,7 @@ echo "Joel's Ubuntu Setup Script"
 while true; do
 	read -p "Are you using a VirtualBox VM? [y/n]: " isVirtualBox
 	case $isVirtualBox in
-		[Yy]* ) apt-get install virtualbox-guest-dkms; break;;
+		[Yy]* ) apt-get -y install virtualbox-guest-dkms; break;;
 		[Nn]* ) break;;
  		* ) echo "Please answer y or n.";;
 	esac
@@ -26,7 +26,7 @@ done
 while true; do
     read -p "Do you want to update/upgrade/dist-upgrade? [y/n]: " update
     case $update in
-        [Yy]* ) apt-get update; apt-get upgrade; apt-get dist-upgrade; break;;
+        [Yy]* ) apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; break;;
         [Nn]* ) break;;
         * ) echo "Please answer y or n.";;
     esac
@@ -46,7 +46,7 @@ done
 while true; do
 	read -p "Do you want Sublime Text 3? [y/n]: " subl
 	case $subl in
-		[Yy]* ) add-apt-repository -y ppa:webupd8team/sublime-text-3; sudo apt-get update; sudo apt-get install -y sublime-text-installer; break;;
+		[Yy]* ) add-apt-repository -y ppa:webupd8team/sublime-text-3 && sudo apt-get update && sudo apt-get install -y sublime-text-installer; break;;
 		[Nn]* ) break;;
  		* ) echo "Please answer y or n.";;
 	esac
@@ -56,7 +56,7 @@ done
 while true; do
 	read -p "Do you want the media essentials? [y/n]: " media
 	case $media in
-		[Yy]* ) apt-get install amarok vlc; break;;
+		[Yy]* ) apt-get install -y amarok vlc; break;;
 		[Nn]* ) break;;
  		* ) echo "Please answer y or n.";;
 	esac
@@ -66,7 +66,7 @@ done
 while true; do
 	read -p "Do you want java? [y/n]: " java
 	case $java in
-		[Yy]* ) apt-get install default-jdk; break;;
+		[Yy]* ) apt-get install -y default-jdk; break;;
 		[Nn]* ) break;;
  		* ) echo "Please answer y or n.";;
 	esac
@@ -76,7 +76,7 @@ done
 while true; do
 	read -p "Do you want ruby? [y/n]: " ruby
 	case $ruby in
-		[Yy]* ) apt-get install ruby && apt-get install ruby-dev; break;;
+		[Yy]* ) apt-get install -y ruby && apt-get install -y ruby-dev; break;;
 		[Nn]* ) break;;
  		* ) echo "Please answer y or n.";;
 	esac
@@ -86,7 +86,7 @@ done
 while true; do
 	read -p "Do you want node and web essentials? [y/n]: " web
 	case $web in
-		[Yy]* ) add-apt-repository ppa:chris-lea/node.js && apt-get update && apt-get install nodejs && apt-get install npm && npm install -g bower; npm install -g grunt-cli; npm install -g gulp; npm install -g yo; break;;
+		[Yy]* ) add-apt-repository ppa:chris-lea/node.js && apt-get update && apt-get install -y nodejs && apt-get install -y npm && npm install -g bower; npm install -g grunt-cli; npm install -g gulp; npm install -g yo; break;;
 		[Nn]* ) break;;
  		* ) echo "Please answer y or n.";;
 	esac
