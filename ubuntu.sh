@@ -86,7 +86,7 @@ done
 while true; do
 	read -p "Do you want node and web essentials? [y/n]: " web
 	case $web in
-		[Yy]* ) add-apt-repository ppa:chris-lea/node.js && apt-get update && apt-get install -y nodejs && apt-get install -y npm && npm install -g bower; npm install -g grunt-cli; npm install -g gulp; npm install -g yo; break;;
+		[Yy]* ) apt-get install -y python-software-properties && apt-add-repository ppa:chris-lea/node.js && apt-get update && apt-get install -y nodejs && npm install -g bower; npm install -g grunt-cli; npm install -g gulp; npm install -g yo; break;;
 		[Nn]* ) break;;
  		* ) echo "Please answer y or n.";;
 	esac
