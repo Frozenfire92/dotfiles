@@ -22,6 +22,16 @@ while true; do
     esac
 done
 
+# .vim
+while true; do
+    read -p "Do you want the .vimrc? [y/n]: " rc
+    case $rc in
+        [Yy]* ) cp -r .vim/ ~/; cp .vimrc ~/; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer y or n.";;
+    esac
+done
+
 # update upgrade dist-upgrade
 while true; do
     read -p "Do you want to update/upgrade/dist-upgrade? [y/n]: " update
@@ -36,7 +46,7 @@ done
 while true; do
 	read -p "Do you want the essentials? [y/n]: " essentials
 	case $essentials in
-		[Yy]* ) apt-get install tree sl htop xclip; break;;
+		[Yy]* ) apt-get install tree sl htop xclip vim; break;;
 		[Nn]* ) break;;
  		* ) echo "Please answer y or n.";;
 	esac
