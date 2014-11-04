@@ -42,7 +42,17 @@ while true; do
     esac
 done
 
-# tree, sl, htop, xclip
+# f.lux
+while true; do
+	read -p "Do you want f.lux? [y/n]: " flux
+	case $flux in
+		[Yy]* ) add-apt-repository ppa:kilian/f.lux && apt-get update && apt-get install fluxgui; break;;
+		[Nn]* ) break;;
+		** ) echo "Please answer y or n.";;
+	esac
+done
+
+# tree, sl, htop, xclip vim
 while true; do
 	read -p "Do you want the essentials? [y/n]: " essentials
 	case $essentials in
