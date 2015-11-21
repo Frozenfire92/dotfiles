@@ -1,5 +1,5 @@
 #!/bin/bash
- 
+
 echo "Joel's Ubuntu Setup Script"
 
 # VirtualBox goodies
@@ -16,7 +16,7 @@ done
 while true; do
     read -p "Do you want the .bashrc? [y/n]: " rc
     case $rc in
-        [Yy]* ) cp .bashrc ~/; break;;
+        [Yy]* ) cp .bashrc ~/; cp .bash_aliases ~/; break;;
         [Nn]* ) break;;
         * ) echo "Please answer y or n.";;
     esac

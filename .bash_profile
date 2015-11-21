@@ -1,36 +1,34 @@
-# export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
-# export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-alias ls='ls -GFh'
-# Setting PATH for Python 3.3
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.3/bin:${PATH}"
-export PATH
+# Exports
+export EDITOR=vim
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# History
+HISTCONTROL=ignoreboth # don't put duplicate lines or lines starting with space in the history.
+shopt -s histappend # append to the history file, don't overwrite it
+HISTSIZE=1500
+HISTFILESIZE=4000
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+# General bash stuff
+shopt -s checkwinsize # check the window size after each command and, if necessary, update the values of LINES and COLUMNS
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)" # make less more friendly for non-text input files, see lesspipe(1)
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+# Add bash aliases.
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -al'
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
-# git aliases
-alias gitcl='git clone'
-alias gita='git add -A'
-alias gits='git status'
-alias gitl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+# Much of what is below has been tweaked from
+# https://github.com/cowboy/dotfiles
 
 # git branch (gb) with descriptions
 function gb() {
@@ -45,9 +43,6 @@ function gb() {
      echo -e "$branch \033[0;36m$desc\033[0m"
   done
 }
-
-# Much of what is below has been tweaked from
-# https://github.com/cowboy/dotfiles
 
 # ANSI CODES - SEPARATE MULTIPLE VALUES WITH ;
 #
@@ -127,15 +122,14 @@ function prompt_command() {
   prompt_getcolors
 
   PS1="\n"
-  # misc: [cmd#:hist#]
-  # PS1="$PS1$c1[$c0#\#$c1:$c0!\!$c1]$c9"
-  # date: [HH:MM:SS]
+  # history #: !234
+  PS1="$PS1$c0!\!$c1$c9 "
+  # date: HH:MM:SS
   PS1="$PS1$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1$c9"
   # path: [user@host:path] "$PS1$c1[$c0\u$c1@$c0\h$c1:$c0\w$c1]$c9"
   PS1="$PS1    $c0\w$c1   " # [path]
-  # git: [branch:flags]
+  # git: git:branch:flags
   PS1="$PS1$(prompt_git)"
-  # PS1="$PS1\n"
   # exit code: 127
   PS1="$PS1$(prompt_exitcode "$exit_code")"
   PS1="$PS1\n$c0  ♣_( ♥_♥ )_♣  $c9"
