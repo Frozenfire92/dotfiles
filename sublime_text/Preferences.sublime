@@ -1,0 +1,54 @@
+{
+    "binary_file_patterns":
+    [
+        "*/node_modules/*",
+        "*/bower_components/*"
+    ],
+    "caret_extra_width": 1,
+    "caret_style": "phase",
+    "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+    "drag_text": false,
+    "draw_centered": false,
+    "draw_minimap_border": true,
+    "enable_tab_scrolling": false,
+    "fade_fold_buttons": false,
+    "folder_exclude_patterns":
+    [
+        ".svn",
+        ".git",
+        ".hg",
+        "CVS",
+        "tmp",
+        "tmp/class-*",
+        "tmp/es_*",
+        "tmp/jshinter*",
+        "tmp/replace_*",
+        "tmp/static_compiler*",
+        "tmp/template_compiler*",
+        "tmp/tree_merger*",
+        "tmp/coffee_script*",
+        "tmp/concat-tmp*",
+        "tmp/export_tree*",
+        "tmp/sass_compiler*"
+    ],
+    "font_options":
+    [
+        "no_round"
+    ],
+    "font_size": 17,
+    "highlight_line": true,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "overlay_scroll_bars": "enabled",
+    "scroll_speed": 5.0,
+    "sidebar_font_big": true,
+    "sidebar_xlarge": true,
+    "tab_size": 4,
+    "tabs_medium": true,
+    "theme": "preap.sublime-theme",
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "word_wrap": false
+}
