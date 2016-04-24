@@ -8,12 +8,16 @@
 - Babel
 - Better CoffeeScript
 - BracketHighlighter
+- CMakeEditor
+- Color Highlighter
 - EditorConfig
 - Emmet
 - Gist
 - GitGutter
 - GitHubinator
+- glslViewer
 - Handlebars
+- JavaScriptNext - ES6 Syntax
 - Markdown Preview
 - Origami
 - PlainTasks
@@ -21,6 +25,7 @@
 - PrettyJSON
 - Print to HTML
 - Sass
+- Shader Syntax (GLSL HLSL Cg)
 - SideBarEnhancements
 - SVG-Snippets
 - URLEncode

@@ -6,6 +6,7 @@ alias egrep='egrep --color=auto'
 # ls aliases
 alias ls='ls --color'
 alias ll='ls -alF --color'
+alias llg='ls -alF --color | grep'
 alias la='ls -A --color'
 alias l='ls -al --color'
 
@@ -16,6 +17,8 @@ alias gits='git status'
 alias gitl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gitd='git diff'
 alias gitds='git diff --staged'
+alias gitnb='git checkout -b'
+alias gitb='git branch'
 
 # system
 alias df="df -Tha --total"
